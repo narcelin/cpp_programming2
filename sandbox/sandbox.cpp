@@ -7,12 +7,35 @@ SANDBOX by Nicolas Arcelin Ovando
 
 using namespace std;
 
+class Test {
+    public:
+        void settingProtected(){
+            protectedValue = 100;
+        }
+        void displayProtected(){
+            cout << protectedValue << endl;
+        }
+    protected:
+        int protectedValue;
+    private:
+        string privateMessage = "TOP SECRET";
+};
+
+class InheritedTest  : public Test {
+    public:
+        void display(){
+            cout << protectedValue << endl;
+        }
+        Test::settingProtected;
+        void setProtected(int x){
+            protectedValue = x;
+        }
+};
+
 int main() 
 {
-   int x = 1;
-   int x = 2;
-   
-    cout << x << endl;
+    int i = 9;
+ if(++i % 10 == 0) cout << i << endl;
 
     return 0;
 }
